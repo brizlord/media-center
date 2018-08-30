@@ -13,8 +13,7 @@ MediaCenter count with a fast service to show the most complete information abou
 
 # Prerequisite
 NodeJS <br>
-Ionic Framework <br>
-Cordova (Optional) <br>
+Angular CLI <br>
 
 # Installation
 Run the command prompt and open the project directory in it then execute <br>
