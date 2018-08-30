@@ -1,0 +1,40 @@
+<app-proxy-modal></app-proxy-modal>
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <h5 class="right">
+                <a class="dropdown-button" materialize="dropdown" href="#!" data-activates="dropdown1">
+                    <i class="material-icons">account_circle</i>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="#!">one</a></li>
+                    <li><a href="#!">two</a></li>
+                    <li class="divider"></li>
+                    <li><a class="modal-trigger" href="#proxyModal"><i class="material-icons tiny">network_locked</i> Proxy</a></li>
+                </ul>
+            </h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <app-menu></app-menu>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12">
+            <div *ngIf="breadCrumbs?.length>0">
+                <a (click)="onBack()"><i
+                        class="material-icons backon">arrow_back</i></a>
+                <a class="breadcrumb-item" *ngFor="let bcrumb of breadCrumbs;let i = index"
+                   (click)="bcLocation(bcrumb,i)">{{bcrumb.name+" > "}}</a>
+            </div>
+
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

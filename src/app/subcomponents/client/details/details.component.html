@@ -1,0 +1,246 @@
+<br>
+<!--MD & L-->
+<div class="card-panel hide-on-small-and-down">
+    <div class="row">
+        <div class="col s7">
+            <h4>{{selectedItem[0].path.split('\\')[selectedItem[0].path.split('\\').length-1]}}</h4>
+
+            <div class="center" *ngIf="dataImdb==null">
+                <div class="preloader-wrapper small active">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="dataImdb!=null">
+                <small><b>Awards: </b>{{dataImdb?.Awards}}</small>
+                <p>{{dataImdb?.Plot}}</p>
+            </div>
+        </div>
+
+        <div class="col s5">
+            <div class="card-panel">
+                <div class="center" *ngIf="dataImdb==null">
+                    <div class="preloader-wrapper big active">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div *ngIf="dataImdb!=null">
+                    <div class="row center">
+                        <!--<img class="pictureInfo" *ngFor="let pict of picts" [src]="pict" alt="pict">-->
+
+                        <img class="pictureInfo" [src]="dataImdb?.Poster" alt="pict">
+                    </div>
+
+                    <h6><b>Size: </b>{{folderSize}}</h6>
+
+                    <img class="imdbPict"
+                         src="data:image/png;base64,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">
+                    <small><b>{{dataImdb?.imdbRating}}</b></small>
+
+                    <br>
+                    <b>Country:</b>
+                    <small>{{dataImdb?.Country}}</small>
+
+                    <br>
+                    <b>Director:</b>
+                    <small>{{dataImdb?.Director}}</small>
+
+                    <br>
+                    <b>Genre:</b>
+                    <small>{{dataImdb?.Genre}}</small>
+
+                    <br>
+                    <b>Language:</b>
+                    <small>{{dataImdb?.Language}}</small>
+
+                    <br>
+                    <b>Production:</b>
+                    <small>{{dataImdb?.Production}}</small>
+
+                    <br>
+                    <b>Runtime:</b>
+                    <small>{{dataImdb?.Runtime}}</small>
+
+                    <br>
+                    <b>Year:</b>
+                    <small>{{dataImdb?.Year}}</small>
+
+                    <br>
+                    <h6><b>Actors:</b></h6>
+                    <small *ngFor="let actor of dataImdb?.Actors.split(',')">{{actor}} <br></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Donwload</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let item of selectedItem;let i=index">
+                <td *ngIf="i<selectedItem.length-1 && item.type!='folder_open'"><i
+                        class="material-icons">{{item.type}}</i> {{item.name}}
+                </td>
+                <td *ngIf="i<selectedItem.length-1 && item.type=='folder_open'"><i
+                        class="material-icons">{{item.type}}</i>
+                    <a (click)="onClickItem(item)">{{item.name}}</a></td>
+                <td *ngIf="i<selectedItem.length-1">{{item.size}}</td>
+                <td *ngIf="i<selectedItem.length-1 && item.type!='folder_open'"><a
+                        [href]="sanitizerUrl('file:///'+item.path+'\\'+item.name)"
+                        target="_blank" download><i
+                        class="material-icons">file_download</i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+<!--XS-->
+<div class="card-panel hide-on-med-and-up">
+    <div class="row">
+        <div class="col s12">
+            <div class="center" *ngIf="dataImdb==null">
+                <div class="preloader-wrapper small active">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="dataImdb!=null" class="center">
+                <img class="pictureInfo" [src]="dataImdb?.Poster" alt="pict">
+            </div>
+
+            <h4>
+                {{selectedItem[0].path.split('\\')[selectedItem[0].path.split('\\').length-1]}}
+            </h4>
+
+            <div class="center" *ngIf="dataImdb==null">
+                <div class="preloader-wrapper active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="dataImdb!=null" style="margin-top: -10px">
+                <small>{{dataImdb?.Country}} | {{dataImdb?.Year}} | {{dataImdb?.Runtime}}</small>
+
+                <br>
+
+                <img class="imdbPict" *ngIf="dataImdb!=null"
+                     src="data:image/png;base64,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">
+                <small><b>{{dataImdb?.imdbRating}}</b></small>
+
+                <br>
+
+                <small><b>Awards: </b>{{dataImdb?.Awards}}</small>
+                <p>{{dataImdb?.Plot}}</p>
+            </div>
+        </div>
+
+        <div class="col s12" *ngIf="dataImdb!=null">
+            <div class="card-panel">
+                <div >
+                    <h6><b>Size: </b>{{folderSize}}</h6>
+
+                    <b>Director:</b>
+                    <small>{{dataImdb?.Director}}</small>
+
+                    <br>
+                    <b>Genre:</b>
+                    <small>{{dataImdb?.Genre}}</small>
+
+                    <br>
+                    <b>Language:</b>
+                    <small>{{dataImdb?.Language}}</small>
+
+                    <br>
+                    <b>Production:</b>
+                    <small>{{dataImdb?.Production}}</small>
+
+                    <br>
+                    <h6><b>Actors:</b></h6>
+                    <small *ngFor="let actor of dataImdb?.Actors.split(',')">{{actor}} <br></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Donwload</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="let item of selectedItem;let i=index">
+                <td *ngIf="i<selectedItem.length-1 && item.type!='folder_open'"><i
+                        class="material-icons">{{item.type}}</i> {{item.name}}
+                </td>
+                <td *ngIf="i<selectedItem.length-1 && item.type=='folder_open'"><i
+                        class="material-icons">{{item.type}}</i>
+                    <a (click)="onClickItem(item)">{{item.name}}</a></td>
+                <td *ngIf="i<selectedItem.length-1">{{item.size}}</td>
+                <td *ngIf="i<selectedItem.length-1 && item.type!='folder_open'"><a
+                        [href]="sanitizerUrl('file:///'+item.path+'\\'+item.name)"
+                        target="_blank" download><i
+                        class="material-icons">file_download</i></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Size</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let item of foldersList">
+        <td><a (click)="onClickItem(item)">
+            <i class="material-icons">{{item.type}}</i>{{item.name}}</a></td>
+        <td>{{item.size}}</td>
+        <!--<td>{{item.date}}</td>-->
+    </tr>
+    </tbody>
+</table>

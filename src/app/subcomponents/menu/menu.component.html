@@ -1,0 +1,23 @@
+<div class="col s12" *ngIf="selectedCategory==''">
+    <div *ngFor="let category of categories" class="col s6 m4 center">
+        <div class="card-panel">
+            <a (click)="selectCategory(category)" class="truncate" routerLink="/list">
+                <i class="material-icons">local_movies</i>
+                <br>
+                {{category}}
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="col s12" *ngIf="selectedCategory!=''">
+    <nav class="white">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo right">Logo</a>
+            <ul id="nav-mobile" class="left">
+                <li *ngFor="let category of categories"><a routerLink="/list" (click)="selectCategory(category)"
+                                                           class="black-text">{{category}}</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,20 @@
+<div id="proxyModal" class="modal" materialize="modal">
+    <div class="modal-content">
+        <h4>Proxy Configuration</h4>
+        <p>Config a proxy, in case you need it, to download information about the medias.</p>
+
+        <div class="input-field">
+            <input id="proxy" type="text" name="proxyConfig" class="validate" [(ngModel)]="proxy">
+            <label for="proxy">Proxy</label>
+        </div>
+
+        <div class="input-field col s4">
+            <label for="port">Port</label>
+            <input id="port" type="text" name="port" class="validate" [(ngModel)]="port">
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <a (click)="saveConfig()" class="modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+    </div>
+</div>
