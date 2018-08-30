@@ -14,6 +14,7 @@ MediaCenter count with a fast service to show the most complete information abou
 # Prerequisite
 NodeJS <br>
 Angular CLI <br>
+Support for PHP 7.0.12
 
 # Installation
 Run the command prompt and open the project directory in it then execute <br>
